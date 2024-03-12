@@ -281,7 +281,7 @@ nav {
   filter: brightness(90%);
 }
 
-#filter-btn {
+#category-dropdown #category-select {
   position: fixed;
   top: 130px;
   left: 20px;

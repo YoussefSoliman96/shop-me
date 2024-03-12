@@ -70,6 +70,53 @@ function displayProducts(products) {
   });
 }
 
+// Fetch categories and populate the dropdown
+fetch("https://fakestoreapi.com/products/categories")
+  .then((res) => res.json())
+  .then((categories) => {
+    const categoryDropdown = document.getElementById("category-select");
+    categories.forEach((category) => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      categoryDropdown.appendChild(option);
+    });
+  })
+  .catch((error) => console.error("Error fetching categories:", error));
+
+// Event listener for selecting category
+document
+  .getElementById("category-select")
+  .addEventListener("change", function () {
+    const selectedCategory = this.value;
+    fetchAndDisplayProducts(selectedCategory);
+  });
+
+// Function to fetch and display products
+function fetchAndDisplayProducts(category = "") {
+  let url = "https://fakestoreapi.com/products";
+  if (category) {
+    url += `/category/${category}`;
+  }
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((products) => {
+      displayProducts(products);
+    })
+    .catch((error) => console.error("Error fetching products:", error));
+}
+
+function displayProducts(products) {
+  const productContainer = document.getElementById("product-container");
+  productContainer.innerHTML = ""; // Clear existing products
+
+  products.forEach((product) => {
+    const card = createProductCard(product);
+    productContainer.appendChild(card);
+  });
+}
+
 function createProductCard(product) {
   const card = document.createElement("div");
   card.classList.add("card");
