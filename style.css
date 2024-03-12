@@ -171,7 +171,6 @@ nav {
 
 .card img {
   width: 100%;
-  height: auto;
 }
 
 .card-info {
@@ -186,13 +185,13 @@ nav {
 .item-price {
   font-size: 16px;
   margin: 0;
-  color: #007bff; /* You can change the color to match your theme */
+  color: #007bff;
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: auto;
 }
 
 .buttons button {
@@ -214,4 +213,108 @@ nav {
 
 .buttons button:hover {
   filter: brightness(90%);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin-top: 5%;
+}
+
+.products .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.products .card:hover {
+  transform: translateY(-5px);
+}
+
+.products .card img {
+  width: 100%;
+  height: auto;
+}
+
+.products .card-info {
+  padding: 15px;
+}
+
+.products .item-name {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.products .item-price {
+  font-size: 16px;
+  margin: 0;
+  color: #007bff;
+}
+
+.products .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.products .buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.products .add-to-cart {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.products .buy-now {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.products .buttons button:hover {
+  filter: brightness(90%);
+}
+
+#filter-btn {
+  position: fixed;
+  top: 130px;
+  left: 20px;
+  padding: 10px 43px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#filter-btn:hover {
+  filter: brightness(90%);
+}
+
+#sort-dropdown {
+  position: fixed;
+  top: 170px;
+  left: 20px;
+  padding: 10px 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#sort-dropdown:hover {
+  filter: brightness(90%);
+}
+
+#sort-dropdown option:hover {
+  background-color: #0056b3;
 }

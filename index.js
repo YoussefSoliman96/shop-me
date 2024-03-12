@@ -32,6 +32,44 @@ fetch("https://fakestoreapi.com/products")
   })
   .catch((error) => console.error("Error fetching products:", error));
 
+fetch("https://fakestoreapi.com/products")
+  .then((res) => res.json())
+  .then((products) => {
+    const productContainer = document.getElementById("product-container");
+    const filterBtn = document.getElementById("filter-btn");
+    const sortDropdown = document.getElementById("sort-dropdown");
+
+    let filteredProducts = [...products];
+
+    filterBtn.addEventListener("click", () => {
+      filteredProducts = products.filter((product) => product.price > 50); // Example filter condition
+      displayProducts(filteredProducts);
+    });
+
+    sortDropdown.addEventListener("change", () => {
+      const sortOption = sortDropdown.value;
+      if (sortOption === "az") {
+        filteredProducts.sort((a, b) => a.title.localeCompare(b.title)); // Sort A-Z
+      } else if (sortOption === "za") {
+        filteredProducts.sort((a, b) => b.title.localeCompare(a.title)); // Sort Z-A
+      }
+      displayProducts(filteredProducts);
+    });
+
+    displayProducts(products);
+  })
+  .catch((error) => console.error("Error fetching products:", error));
+
+function displayProducts(products) {
+  const productContainer = document.getElementById("product-container");
+  productContainer.innerHTML = ""; // Clear existing products
+
+  products.forEach((product) => {
+    const card = createProductCard(product);
+    productContainer.appendChild(card);
+  });
+}
+
 function createProductCard(product) {
   const card = document.createElement("div");
   card.classList.add("card");
