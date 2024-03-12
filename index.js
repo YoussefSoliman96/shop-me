@@ -140,6 +140,9 @@ function createProductCard(product) {
   const addToCartButton = document.createElement("button");
   addToCartButton.classList.add("add-to-cart");
   addToCartButton.textContent = "Add to Cart";
+  addToCartButton.addEventListener("click", function () {
+    addToCart(product);
+  });
   buttonsDiv.appendChild(addToCartButton);
 
   const buyNowButton = document.createElement("button");
@@ -151,4 +154,10 @@ function createProductCard(product) {
   card.appendChild(cardInfo);
 
   return card;
+}
+
+function addToCart(product) {
+  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  cartItems.push(product);
+  localStorage.setItem("cart", JSON.stringify(cartItems));
 }

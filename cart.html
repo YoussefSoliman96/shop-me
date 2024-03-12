@@ -3,9 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Cart</title>
   </head>
   <body>
+    <nav id="desktop-nav">
+      <div class="logo">
+        <a href="/"
+          ><img src="./assests/logo.png" alt="logo" width="130px"
+        /></a>
+      </div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/cart.html">Cart</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">
+        <a href="/"
+          ><img src="./assests/logo.png" alt="logo" width="130px"
+        /></a>
+      </div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="togglemenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="togglemenu()">About</a></li>
+          <li><a href="#contact" onclick="togglemenu()">Contact</a></li>
+          <li><a href="#Cart" onclick="togglemenu()">Cart</a></li>
+        </div>
+      </div>
+    </nav>
     <div id="cart-container"></div>
+
+    <script src="cart.js"></script>
   </body>
 </html>
