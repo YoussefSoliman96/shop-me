@@ -318,3 +318,17 @@ nav {
 #sort-dropdown option:hover {
   background-color: #0056b3;
 }
+
+#total-price-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.big-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
