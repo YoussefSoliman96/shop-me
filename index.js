@@ -20,6 +20,7 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
