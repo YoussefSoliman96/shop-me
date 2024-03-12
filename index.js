@@ -41,11 +41,6 @@ fetch("https://fakestoreapi.com/products")
 
     let filteredProducts = [...products];
 
-    filterBtn.addEventListener("click", () => {
-      filteredProducts = products.filter((product) => product.price > 50); // Example filter condition
-      displayProducts(filteredProducts);
-    });
-
     sortDropdown.addEventListener("change", () => {
       const sortOption = sortDropdown.value;
       if (sortOption === "az") {
